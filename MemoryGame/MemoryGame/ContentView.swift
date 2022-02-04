@@ -14,7 +14,6 @@ struct ContentView: View {
     let themeFood = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕"]
     
     @State var deck: [String] = []
-    @State var amountOfCards: Int = 8
     
     var body: some View {
         VStack {
@@ -36,7 +35,7 @@ struct ContentView: View {
         VStack {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
-                    ForEach(deck[0..<amountOfCards], id: \.self) { emoji in
+                    ForEach(deck, id: \.self) { emoji in
                         CardView(content: emoji)
                             .aspectRatio(2/3, contentMode: .fit)
                             .padding(5)
@@ -95,7 +94,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice("iPhone 8 Plus")
+            .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)
     }
 }
