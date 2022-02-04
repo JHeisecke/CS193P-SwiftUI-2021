@@ -9,14 +9,45 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let emojis = ["🧋", "🥤", "🍰", "🐒", "🚙", "🎧", "🚎", "🍿", "🤖", "👾", "👽", "💀", "☠️", "🦿", "🦵🏻"]
-    @State var amountOfCards: Int = 4
+    let themeVehicles = ["🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
+    let themeAnimals = ["🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯"]
+    let themeFood = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕"]
+    
+    @State var deck: [String] = []
+    @State var amountOfCards: Int = 0
     
     var body: some View {
+        if deck.isEmpty {
+            VStack {
+                Button {
+                    deck = themeVehicles
+                } label: {
+                    Text("Vehicles")
+                        .padding()
+                        .frame(width: 200, height: 56)
+                        
+                }
+                Button {
+                    deck = themeAnimals
+                } label: {
+                    Text("Animals")
+                }
+                Button {
+                    deck = themeFood
+                } label: {
+                    Text("Food")
+                }
+            }
+        } else {
+            memoryGame
+        }
+    }
+    
+    var memoryGame: some View {
         VStack {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
-                    ForEach(emojis[0..<amountOfCards], id: \.self) { emoji in
+                    ForEach(deck[0..<amountOfCards], id: \.self) { emoji in
                         CardView(content: emoji)
                             .aspectRatio(2/3, contentMode: .fit)
                             .padding(5)
@@ -37,7 +68,7 @@ struct ContentView: View {
     
     var plusButton: some View {
         Button {
-            if amountOfCards < emojis.count {
+            if amountOfCards < deck.count {
                 amountOfCards += 1
             }
         } label: {
