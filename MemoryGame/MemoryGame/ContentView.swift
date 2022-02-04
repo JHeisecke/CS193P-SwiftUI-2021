@@ -14,32 +14,21 @@ struct ContentView: View {
     let themeFood = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕"]
     
     @State var deck: [String] = []
-    @State var amountOfCards: Int = 0
+    @State var amountOfCards: Int = 8
     
     var body: some View {
-        if deck.isEmpty {
-            VStack {
-                Button {
-                    deck = themeVehicles
-                } label: {
-                    Text("Vehicles")
-                        .padding()
-                        .frame(width: 200, height: 56)
-                        
-                }
-                Button {
-                    deck = themeAnimals
-                } label: {
-                    Text("Animals")
-                }
-                Button {
-                    deck = themeFood
-                } label: {
-                    Text("Food")
-                }
+        VStack {
+            Text("Memorize!")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            if deck.isEmpty {
+                ThemeButton(deck: $deck, theme: themeVehicles, text: "Vehicles")
+                ThemeButton(deck: $deck, theme: themeAnimals, text: "Animals")
+                    .padding(.vertical)
+                ThemeButton(deck: $deck, theme: themeFood, text: "Foods")
+            } else {
+                memoryGame
             }
-        } else {
-            memoryGame
         }
     }
     
@@ -56,9 +45,11 @@ struct ContentView: View {
             }
             Spacer()
             HStack {
-                plusButton
+                vehicleTheme
                 Spacer()
-                minusButton
+                foodTheme
+                Spacer()
+                animalTheme
             }
             .font(.largeTitle)
             .padding(.horizontal)
@@ -66,24 +57,37 @@ struct ContentView: View {
         .padding(.horizontal)
     }
     
-    var plusButton: some View {
+    var vehicleTheme: some View {
         Button {
-            if amountOfCards < deck.count {
-                amountOfCards += 1
-            }
+            deck = themeVehicles.shuffled()
         } label: {
-            Image(systemName: "plus.circle")
+            VStack {
+                Image(systemName: "car")
+                Text("Vehicles")
+                    .font(.caption)
+            }
         }
     }
-
-    var minusButton: some View {
+    var foodTheme: some View {
         Button {
-            if amountOfCards > 0 {
-                amountOfCards -= 1
-            }
+            deck = themeFood.shuffled()
         } label: {
-            Image(systemName: "minus.circle")
+            VStack {
+                Image(systemName: "fork.knife")
+                Text("Food")
+                    .font(.caption)
+            }
         }
+    }
+    var animalTheme: some View {
+        Button {
+            deck = themeAnimals.shuffled()
+        } label: {
+            VStack {
+                Image(systemName: "tortoise")
+                Text("Animal")
+                    .font(.caption)
+            }        }
     }
     
 }
@@ -91,6 +95,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 8 Plus")
             .preferredColorScheme(.dark)
     }
 }
@@ -118,6 +123,31 @@ struct CardView: View {
         }
         .onTapGesture {
             isFlipped = !isFlipped
+        }
+    }
+}
+
+struct ThemeButton: View {
+    @Binding var deck: [String]
+    var theme: [String]
+    var text: String
+    
+    var body: some View {
+        Button {
+            deck = theme
+        } label: {
+            Text(text)
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .frame(width: 100, height: 50, alignment: .center)
+                .padding()
+                .padding(.horizontal, 20)
+                .background(
+                    Color.blue
+                        .cornerRadius(10)
+                        .shadow(radius:10)
+                )
         }
     }
 }
