@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    let themeVehicles = ["🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
-    let themeAnimals = ["🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯"]
-    let themeFood = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕"]
+struct MemoryGameView: View {
     
     @State var deck: [String] = []
     
@@ -21,10 +17,10 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
             if deck.isEmpty {
-                ThemeButton(deck: $deck, theme: themeVehicles, text: "Vehicles")
-                ThemeButton(deck: $deck, theme: themeAnimals, text: "Animals")
+                ThemeButton(deck: $deck, theme: DeckThemes.themeVehicles, text: "Vehicles")
+                ThemeButton(deck: $deck, theme: DeckThemes.themeAnimals, text: "Animals")
                     .padding(.vertical)
-                ThemeButton(deck: $deck, theme: themeFood, text: "Foods")
+                ThemeButton(deck: $deck, theme: DeckThemes.themeFood, text: "Foods")
             } else {
                 memoryGame
             }
@@ -58,7 +54,7 @@ struct ContentView: View {
     
     var vehicleTheme: some View {
         Button {
-            deck = themeVehicles.shuffled()
+            deck = DeckThemes.themeVehicles.shuffled()
         } label: {
             VStack {
                 Image(systemName: "car")
@@ -69,7 +65,7 @@ struct ContentView: View {
     }
     var foodTheme: some View {
         Button {
-            deck = themeFood.shuffled()
+            deck = DeckThemes.themeFood.shuffled()
         } label: {
             VStack {
                 Image(systemName: "fork.knife")
@@ -80,7 +76,7 @@ struct ContentView: View {
     }
     var animalTheme: some View {
         Button {
-            deck = themeAnimals.shuffled()
+            deck = DeckThemes.themeAnimals.shuffled()
         } label: {
             VStack {
                 Image(systemName: "tortoise")
@@ -93,7 +89,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MemoryGameView()
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)
     }
