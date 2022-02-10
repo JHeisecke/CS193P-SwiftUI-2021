@@ -13,7 +13,7 @@ struct MemoryGameView: View {
         
     var body: some View {
         VStack {
-            Text("Memorize!")
+            Text("Memorize \(viewModel.name)!")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             memoryGame
@@ -25,7 +25,7 @@ struct MemoryGameView: View {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
                     ForEach(viewModel.cards) { card in
-                        CardView(card: card)
+                        CardView(card: card, color: viewModel.color)
                             .aspectRatio(2/3, contentMode: .fit)
                             .padding(5)
                             .onTapGesture {
@@ -36,50 +36,12 @@ struct MemoryGameView: View {
             }
             Spacer()
             HStack {
-                vehicleTheme
-                Spacer()
-                foodTheme
-                Spacer()
-                animalTheme
+                Text("Points: \(viewModel.points)")
             }
             .font(.largeTitle)
             .padding(.horizontal)
         }
         .padding(.horizontal)
-    }
-    
-    var vehicleTheme: some View {
-        Button {
-//            deck = DeckThemes.themeVehicles.shuffled()
-        } label: {
-            VStack {
-                Image(systemName: "car")
-                Text("Vehicles")
-                    .font(.caption)
-            }
-        }
-    }
-    var foodTheme: some View {
-        Button {
-            //deck = DeckThemes.themeFood.shuffled()
-        } label: {
-            VStack {
-                Image(systemName: "fork.knife")
-                Text("Food")
-                    .font(.caption)
-            }
-        }
-    }
-    var animalTheme: some View {
-        Button {
-            //deck = DeckThemes.themeAnimals.shuffled()
-        } label: {
-            VStack {
-                Image(systemName: "tortoise")
-                Text("Animal")
-                    .font(.caption)
-            }
-        }
     }
     
 }
@@ -93,7 +55,8 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct CardView: View {
-    let card: MemoryGame<String>.MemoryCard
+    let card: MemoryGame.Deck.Card
+    let color: Int
     
     var body: some View {
         let shape = RoundedRectangle(cornerRadius: 20)
@@ -104,12 +67,12 @@ struct CardView: View {
                     .foregroundColor(.white)
                 shape
                     .stroke(lineWidth: 3)
-                    .foregroundColor(.purple)
+                    .foregroundColor(Color(hex: color))
                 Text(card.content).font(.largeTitle)
             } else {
                 shape
                     .fill()
-                    .foregroundColor(.purple)
+                    .foregroundColor(Color(hex: color))
             }
         }
     }

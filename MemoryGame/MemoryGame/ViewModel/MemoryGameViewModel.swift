@@ -9,16 +9,28 @@ import Foundation
 
 class MemoryGameViewModel: ObservableObject {
     
-    @Published private var model: MemoryGame<String> = MemoryGame(numberOfPairs: 2) { pairIndex in
-        DeckThemes.themeAnimals[pairIndex]
+    @Published private var model: MemoryGame = MemoryGame(theme: MemoryThemes.randomOption, numberOfPairs: 20) { pairIndex, theme in
+        theme.deck[pairIndex]
     }
     
-    var cards: [MemoryGame<String>.MemoryCard] {
+    var cards: [MemoryGame.Deck.Card] {
         return model.cards
     }
     
+    var name: String {
+        return model.name
+    }
+    
+    var points: Int {
+        return model.points
+    }
+    
+    var color: Int {
+        return model.deck.color
+    }
+    
     //MARK: - Intent(s)
-    func choose(_ card: MemoryGame<String>.MemoryCard) {
+    func choose(_ card: MemoryGame.Deck.Card) {
         model.choose(card)
     }
 }
