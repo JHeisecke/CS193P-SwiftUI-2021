@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00D2621327B036C70037F014 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2621227B036C70037F014 /* MemoryGame.swift */; };
 		00D2621627B037C40037F014 /* MemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2621527B037C40037F014 /* MemoryGameViewModel.swift */; };
-		00D2621927B04AE00037F014 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2621827B04AE00037F014 /* Card.swift */; };
 		0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */; };
 		0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */; };
 		0BF0E17E27AC1AD2003F0679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF0E17D27AC1AD2003F0679 /* Assets.xcassets */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		00D2621227B036C70037F014 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		00D2621527B037C40037F014 /* MemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameViewModel.swift; sourceTree = "<group>"; };
-		00D2621827B04AE00037F014 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0BF0E17627AC1AD1003F0679 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameApp.swift; sourceTree = "<group>"; };
 		0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameView.swift; sourceTree = "<group>"; };
@@ -42,7 +40,6 @@
 			isa = PBXGroup;
 			children = (
 				00D2621227B036C70037F014 /* MemoryGame.swift */,
-				00D2621827B04AE00037F014 /* Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,7 +169,6 @@
 			files = (
 				00D2621327B036C70037F014 /* MemoryGame.swift in Sources */,
 				0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */,
-				00D2621927B04AE00037F014 /* Card.swift in Sources */,
 				0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */,
 				00D2621627B037C40037F014 /* MemoryGameViewModel.swift in Sources */,
 			);
