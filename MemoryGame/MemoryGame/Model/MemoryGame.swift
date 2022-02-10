@@ -10,7 +10,10 @@ import Foundation
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [MemoryCard]
     
-    private var indexOfFlippedCard: Int?
+    private var indexOfFlippedCard: Int? {
+        get { cards.indices.filter({ cards[$0].isFaceUp }).oneAndOnly }
+        set { cards.indices.forEach{ cards[$0].isFaceUp = ( $0 == newValue) } }
+    }
     
     init(numberOfPairs: Int, createCardContent: (Int) -> CardContent) {
         cards = [MemoryCard]()
@@ -32,19 +35,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     cards[chosenIndex].isMatched = true
                     cards[matchCardIndex].isMatched = true
                 }
+                cards[chosenIndex].isFaceUp = true
             } else {
-                for index in cards.indices {
-                    cards[index].isFaceUp = false
-                }
                 indexOfFlippedCard = chosenIndex
             }
-            cards[chosenIndex].isFaceUp.toggle()
         }
     }
     
     struct MemoryCard: Identifiable {
-        var id: Int
-        var content: CardContent
+        let id: Int
+        let content: CardContent
         var isFaceUp = false
         var isMatched = false
     }
@@ -54,4 +54,14 @@ struct DeckThemes {
     static let themeVehicles = ["🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
     static let themeAnimals = ["🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯"]
     static let themeFood = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕"]
+}
+
+extension Array {
+    var oneAndOnly: Element? {
+        if self.count == 1 {
+            return first
+        } else {
+            return nil
+        }
+    }
 }
