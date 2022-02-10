@@ -10,7 +10,7 @@ import SwiftUI
 struct MemoryGameView: View {
     
     @ObservedObject var viewModel = MemoryGameViewModel()
-        
+    
     var body: some View {
         VStack {
             Text("Memorize \(viewModel.name)!")
@@ -36,7 +36,27 @@ struct MemoryGameView: View {
             }
             Spacer()
             HStack {
+                VStack {
+                    Button {
+                        viewModel.newGame()
+                    } label: {
+                        Circle()
+                            .frame(width: 55, height: 55)
+                            .foregroundColor(Color(hex: viewModel.color))
+                            .shadow(radius: 10)
+                            .overlay(
+                                Image(systemName: "restart")
+                                    .font(.largeTitle)
+                                    .foregroundColor(Color.black)
+                            )
+                        
+                    }
+                    Text("New Game")
+                        .font(.caption)
+                }
+                Spacer()
                 Text("Points: \(viewModel.points)")
+                Spacer()
             }
             .font(.largeTitle)
             .padding(.horizontal)
@@ -51,6 +71,9 @@ struct ContentView_Previews: PreviewProvider {
         MemoryGameView()
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)
+        MemoryGameView()
+            .previewDevice("iPhone 13 Pro Max")
+            .preferredColorScheme(.light)
     }
 }
 
