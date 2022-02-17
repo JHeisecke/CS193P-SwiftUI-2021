@@ -55,23 +55,35 @@ struct CardView: View {
     let card: MemoryGame<String>.MemoryCard
     
     var body: some View {
-        let shape = RoundedRectangle(cornerRadius: 20)
-        ZStack {
-            if card.isFaceUp {
-                shape
-                    .fill()
-                    .foregroundColor(.white)
-                shape
-                    .stroke(lineWidth: 3)
-                    .foregroundColor(.purple)
-                Text(card.content).font(.largeTitle)
-            } else if card.isMatched {
-                shape.opacity(0)
-            } else {
-                shape
-                    .fill()
-                    .foregroundColor(.purple)
+        GeometryReader { geometry in
+            ZStack {
+                let shape = RoundedRectangle(cornerRadius: DrawingConstants.cornerRadius)
+                if card.isFaceUp {
+                    shape
+                        .fill()
+                        .foregroundColor(.white)
+                    shape
+                        .stroke(lineWidth: DrawingConstants.lineWidth)
+                        .foregroundColor(.purple)
+                    Text(card.content).font(font(in: geometry.size))
+                } else if card.isMatched {
+                    shape.opacity(0)
+                } else {
+                    shape
+                        .fill()
+                        .foregroundColor(.purple)
+                }
             }
         }
+    }
+    
+    private func font(in size: CGSize) -> Font {
+        Font.system(size: min(size.width, size.height) * DrawingConstants.fontScale)
+    }
+    
+    private struct DrawingConstants {
+        static let cornerRadius: CGFloat = 20
+        static let lineWidth: CGFloat = 3
+        static let fontScale: CGFloat = 0.8
     }
 }
