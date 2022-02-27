@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		00A15A3427CBCDDB0014DA09 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */; };
 		00A15A3627CBD72B0014DA09 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3527CBD72B0014DA09 /* Pie.swift */; };
+		00A15A3827CBFF400014DA09 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3727CBFF400014DA09 /* Cardify.swift */; };
+		00A15A3A27CC00110014DA09 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3927CC00110014DA09 /* Constants.swift */; };
+		00A15A3C27CC008E0014DA09 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3B27CC008E0014DA09 /* View+Extension.swift */; };
 		00D2621327B036C70037F014 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2621227B036C70037F014 /* MemoryGame.swift */; };
 		00D2621627B037C40037F014 /* MemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2621527B037C40037F014 /* MemoryGameViewModel.swift */; };
 		0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		00A15A3527CBD72B0014DA09 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		00A15A3727CBFF400014DA09 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
+		00A15A3927CC00110014DA09 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		00A15A3B27CC008E0014DA09 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		00D2621227B036C70037F014 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		00D2621527B037C40037F014 /* MemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameViewModel.swift; sourceTree = "<group>"; };
 		0BF0E17627AC1AD1003F0679 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +46,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00A15A3D27CC00C50014DA09 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00A15A3B27CC008E0014DA09 /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		00A15A3E27CC00CF0014DA09 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				00A15A3927CC00110014DA09 /* Constants.swift */,
+				00A15A3D27CC00C50014DA09 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		00D2621127B036B90037F014 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,9 +82,11 @@
 		00D2621727B037DC0037F014 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00A15A3E27CC00CF0014DA09 /* Utils */,
 				0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */,
 				00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */,
 				00A15A3527CBD72B0014DA09 /* Pie.swift */,
+				00A15A3727CBFF400014DA09 /* Cardify.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,11 +199,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A15A3627CBD72B0014DA09 /* Pie.swift in Sources */,
+				00A15A3827CBFF400014DA09 /* Cardify.swift in Sources */,
 				00D2621327B036C70037F014 /* MemoryGame.swift in Sources */,
 				0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */,
 				0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */,
+				00A15A3C27CC008E0014DA09 /* View+Extension.swift in Sources */,
 				00A15A3427CBCDDB0014DA09 /* AspectVGrid.swift in Sources */,
 				00D2621627B037C40037F014 /* MemoryGameViewModel.swift in Sources */,
+				00A15A3A27CC00110014DA09 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
