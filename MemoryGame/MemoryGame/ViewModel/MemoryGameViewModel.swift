@@ -9,7 +9,7 @@ import Foundation
 
 class MemoryGameViewModel: ObservableObject {
     
-    @Published private var model: MemoryGame<String> = MemoryGame(numberOfPairs: 2) { pairIndex in
+    @Published private var model: MemoryGame<String> = MemoryGame(numberOfPairs: 6) { pairIndex in
         DeckThemes.themeAnimals[pairIndex]
     }
     

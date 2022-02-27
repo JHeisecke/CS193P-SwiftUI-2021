@@ -21,22 +21,19 @@ struct MemoryGameView: View {
     }
     
     var memoryGame: some View {
-        VStack {
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
-                    ForEach(viewModel.cards) { card in
-                        CardView(card: card)
-                            .aspectRatio(2/3, contentMode: .fit)
-                            .padding(5)
-                            .onTapGesture {
-                                viewModel.choose(card)
-                            }
+        AspectVGrid(items: viewModel.cards, aspectRatio: 2/3) { card in
+            if card.isMatched && !card.isFaceUp {
+                Rectangle().opacity(0)
+            } else {
+                CardView(card: card)
+                    .aspectRatio(2/3, contentMode: .fit)
+                    .padding(5)
+                    .onTapGesture {
+                        viewModel.choose(card)
                     }
-                }
             }
-            .font(.largeTitle)
-            .padding(.horizontal)
         }
+        .font(.largeTitle)
         .padding(.horizontal)
     }
 
@@ -66,8 +63,6 @@ struct CardView: View {
                         .stroke(lineWidth: DrawingConstants.lineWidth)
                         .foregroundColor(.purple)
                     Text(card.content).font(font(in: geometry.size))
-                } else if card.isMatched {
-                    shape.opacity(0)
                 } else {
                     shape
                         .fill()

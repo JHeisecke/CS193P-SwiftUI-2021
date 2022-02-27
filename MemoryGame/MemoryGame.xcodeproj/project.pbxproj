@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A15A3427CBCDDB0014DA09 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */; };
 		00D2621327B036C70037F014 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2621227B036C70037F014 /* MemoryGame.swift */; };
 		00D2621627B037C40037F014 /* MemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D2621527B037C40037F014 /* MemoryGameViewModel.swift */; };
 		0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		00D2621227B036C70037F014 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		00D2621527B037C40037F014 /* MemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameViewModel.swift; sourceTree = "<group>"; };
 		0BF0E17627AC1AD1003F0679 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */,
+				00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				00D2621327B036C70037F014 /* MemoryGame.swift in Sources */,
 				0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */,
 				0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */,
+				00A15A3427CBCDDB0014DA09 /* AspectVGrid.swift in Sources */,
 				00D2621627B037C40037F014 /* MemoryGameViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
