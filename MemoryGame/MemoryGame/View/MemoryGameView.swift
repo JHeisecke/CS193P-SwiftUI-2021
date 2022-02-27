@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MemoryGameView: View {
     
-    @ObservedObject var viewModel = MemoryGameViewModel()
+    @ObservedObject var viewModel: MemoryGameViewModel
         
     var body: some View {
         VStack {
@@ -42,7 +42,9 @@ struct MemoryGameView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MemoryGameView()
+        let game = MemoryGameViewModel()
+        game.choose(game.cards.first!)
+        return MemoryGameView(viewModel: game)
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)
     }
@@ -62,6 +64,7 @@ struct CardView: View {
                     shape
                         .stroke(lineWidth: DrawingConstants.lineWidth)
                         .foregroundColor(.purple)
+                    Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: 110-90)).foregroundColor(.red).padding(4).opacity(0.5)
                     Text(card.content).font(font(in: geometry.size))
                 } else {
                     shape
@@ -79,6 +82,6 @@ struct CardView: View {
     private struct DrawingConstants {
         static let cornerRadius: CGFloat = 20
         static let lineWidth: CGFloat = 3
-        static let fontScale: CGFloat = 0.8
+        static let fontScale: CGFloat = 0.7
     }
 }
