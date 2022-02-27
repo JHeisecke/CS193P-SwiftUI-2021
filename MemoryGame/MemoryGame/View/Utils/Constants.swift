@@ -5,7 +5,7 @@
 //  Created by Javier Heisecke on 2022-02-27.
 //
 
-import Foundation
+import SwiftUI
 
 struct DrawingConstants {
     static let cornerRadius: CGFloat = 20

@@ -43,7 +43,7 @@ struct MemoryGameView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let game = MemoryGameViewModel()
-        game.choose(game.cards.first!)
+        //game.choose(game.cards.first!)
         return MemoryGameView(viewModel: game)
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)

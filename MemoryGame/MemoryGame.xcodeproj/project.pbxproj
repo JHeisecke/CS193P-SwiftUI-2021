@@ -57,6 +57,9 @@
 		00A15A3E27CC00CF0014DA09 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				00A15A3527CBD72B0014DA09 /* Pie.swift */,
+				00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */,
+				00A15A3727CBFF400014DA09 /* Cardify.swift */,
 				00A15A3927CC00110014DA09 /* Constants.swift */,
 				00A15A3D27CC00C50014DA09 /* Extensions */,
 			);
@@ -84,9 +87,6 @@
 			children = (
 				00A15A3E27CC00CF0014DA09 /* Utils */,
 				0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */,
-				00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */,
-				00A15A3527CBD72B0014DA09 /* Pie.swift */,
-				00A15A3727CBFF400014DA09 /* Cardify.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
