@@ -9,8 +9,12 @@ import Foundation
 
 class MemoryGameViewModel: ObservableObject {
     
-    @Published private var model: MemoryGame<String> = MemoryGame(numberOfPairs: 3) { pairIndex in
-        DeckThemes.themeAnimals[pairIndex]
+    @Published private var model = createMemoryGame()
+    
+    private static func createMemoryGame() -> MemoryGame<String> {
+        MemoryGame<String>(numberOfPairs: 9) { pairIndex in
+            DeckThemes.allThemes[pairIndex]
+        }
     }
     
     var cards: [MemoryGame<String>.MemoryCard] {
@@ -20,5 +24,13 @@ class MemoryGameViewModel: ObservableObject {
     //MARK: - Intent(s)
     func choose(_ card: MemoryGame<String>.MemoryCard) {
         model.choose(card)
+    }
+    
+    func shuffle() {
+        model.shuffle()
+    }
+    
+    func restart() {
+        model = MemoryGameViewModel.createMemoryGame()
     }
 }
