@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MemoryGameView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: MemoryGameViewModel
     @State private var dealt = Set<Int>()
     // a token which provides a namespace for the id's used in matchGeometryEffect
@@ -34,6 +35,17 @@ struct MemoryGameView: View {
                 bottomBar
             }
             deckBody
+        }
+        .navigationBarBackButtonHidden(true) /// Creates custom back button to restart game when view is dismissed
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    viewModel.restart()
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                }
+            }
         }
         .padding()
     }

@@ -45,8 +45,9 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     cards[matchCardIndex].isMatched = true
                     score += (2 + 2 * (cards[matchCardIndex].bonusRemaining + cards[chosenIndex].bonusRemaining)).round(to: 1)
                 } else {
-                    if cards[chosenIndex].hasBeenSeen {
-                        score -= 1
+                    if cards[chosenIndex].hasBeenSeen ||
+                        (cards[chosenIndex].isFaceUp && cards[matchCardIndex].hasBeenSeen) {
+                        score -= (1 + 1 * (cards[chosenIndex].negativeBonus + cards[matchCardIndex].negativeBonus)).round(to: 1)
                     }
                 }
                 cards[chosenIndex].isFaceUp = true
@@ -100,18 +101,25 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         // (i.e. not including the current time it's been face up if it is currently so)
         var pastFaceUpTime: TimeInterval = 0
         
+        // how much time has passed
+        var timePassed: TimeInterval {
+           bonusTimeLimit - faceUpTime
+        }
+        
         // how much time left before the bonus opportunity runs out
         var bonusTimeRemaining: TimeInterval {
-            max(0, bonusTimeLimit - faceUpTime)
+            max(0, timePassed)
         }
+        
         // percentage of the bonus time remaining
         var bonusRemaining: Double {
             (bonusTimeLimit > 0 && bonusTimeRemaining > 0) ? bonusTimeRemaining/bonusTimeLimit : 0
         }
-        // whether the card was matched during the bonus time period
-        var hasEarnedBonus: Bool {
-            isMatched && bonusTimeRemaining > 0
+        
+        var negativeBonus: Double {
+            bonusTimeLimit > 0 && timePassed < 0 ? abs(timePassed)/bonusTimeLimit : 0
         }
+        
         // whether we are currently face up, unmatched and have not yet used up the bonus window
         var isConsumingBonusTime: Bool {
             isFaceUp && !isMatched && bonusTimeRemaining > 0
