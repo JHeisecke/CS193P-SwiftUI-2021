@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct CardView: View {
-    let card: MemoryGame<String>.MemoryCard
+    let card: Card
     var color: Int
     
     @State private var animatedBonusRemaining: Double = 0
+    
+    private func startBonusTimeAnimation() {
+        animatedBonusRemaining = card.bonusRemaining
+        withAnimation(.linear(duration: card.bonusTimeRemaining)) {
+            animatedBonusRemaining = 0
+        }
+    }
     
     var body: some View {
         GeometryReader { proxy in
@@ -21,10 +28,7 @@ struct CardView: View {
                     if card.isConsumingBonusTime {
                         Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: (1-animatedBonusRemaining)*360-90))
                             .onAppear {
-                                animatedBonusRemaining = card.bonusRemaining
-                                withAnimation(.linear(duration: card.bonusTimeRemaining)) {
-                                    animatedBonusRemaining = 0
-                                }
+                                startBonusTimeAnimation()
                             }
                     } else {
                         Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: (1-card.bonusTimeRemaining)*360-90))

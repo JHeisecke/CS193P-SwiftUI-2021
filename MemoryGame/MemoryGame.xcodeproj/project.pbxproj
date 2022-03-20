@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002AF21727E78DF900CF5D53 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AF21627E78DF900CF5D53 /* Double+Extension.swift */; };
 		00A15A3427CBCDDB0014DA09 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */; };
 		00A15A3627CBD72B0014DA09 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3527CBD72B0014DA09 /* Pie.swift */; };
 		00A15A3827CBFF400014DA09 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3727CBFF400014DA09 /* Cardify.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		002AF21627E78DF900CF5D53 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		00A15A3527CBD72B0014DA09 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		00A15A3727CBFF400014DA09 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				00A15A3B27CC008E0014DA09 /* View+Extension.swift */,
 				00FC541127E6B4F000A4BD45 /* Color+Extension.swift */,
 				00FC541327E6B66F00A4BD45 /* Array+Extension.swift */,
+				002AF21627E78DF900CF5D53 /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */,
 				00FC542727E773C500A4BD45 /* GridLayout.swift in Sources */,
 				00FC541D27E6CE2000A4BD45 /* MenuView.swift in Sources */,
+				002AF21727E78DF900CF5D53 /* Double+Extension.swift in Sources */,
 				00FC542327E6D9A300A4BD45 /* DeckThemes.swift in Sources */,
 				00A15A3C27CC008E0014DA09 /* View+Extension.swift in Sources */,
 				00FC542527E7738B00A4BD45 /* Grid.swift in Sources */,

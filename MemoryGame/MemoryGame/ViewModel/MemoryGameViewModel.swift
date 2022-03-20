@@ -17,12 +17,12 @@ class MemoryGameViewModel: ObservableObject {
         }
     }
     
-    var cards: [MemoryGame<String>.MemoryCard] {
+    var cards: [Card] {
         return model.cards
     }
     
-    var score: Int {
-        model.score
+    var score: String {
+        String(format:"%.1f", model.score)
     }
     
     var name: String {
@@ -34,7 +34,7 @@ class MemoryGameViewModel: ObservableObject {
     }
     
     //MARK: - Intent(s)
-    func choose(_ card: MemoryGame<String>.MemoryCard) {
+    func choose(_ card: Card) {
         model.choose(card)
     }
     

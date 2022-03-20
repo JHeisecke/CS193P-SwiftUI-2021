@@ -7,11 +7,14 @@
 
 import Foundation
 
+typealias Card = MemoryGame<String>.MemoryCard
+
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [MemoryCard]
+    var areAllCardsMatched: Bool = false
     var name: String
     var color: Int
-    var score = 0
+    var score: Double
     
     private var indexOfFlippedCard: Int? {
         get { cards.indices.filter({ cards[$0].isFaceUp }).oneAndOnly }
@@ -40,7 +43,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[chosenIndex].content == cards[matchCardIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[matchCardIndex].isMatched = true
-                    score += 2
+                    score += (2 + 2 * (cards[matchCardIndex].bonusRemaining + cards[chosenIndex].bonusRemaining)).round(to: 1)
                 } else {
                     if cards[chosenIndex].hasBeenSeen {
                         score -= 1

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Modifier that set the shape and color of the card, also applies the emoji rotation animation
 struct Cardify: Animatable, ViewModifier {
     var rotation: Double // in degrees
     var color: Color

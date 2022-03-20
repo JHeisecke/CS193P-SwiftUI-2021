@@ -25,7 +25,7 @@ struct MemoryGameView: View {
                     HStack {
                         Spacer()
                         Text("Score")
-                        Text("\(viewModel.score)")
+                        Text(viewModel.score)
                             .foregroundColor(.red)
                     }
                 }
@@ -38,15 +38,15 @@ struct MemoryGameView: View {
         .padding()
     }
     
-    private func deal(_ card: MemoryGame<String>.MemoryCard) {
+    private func deal(_ card: Card) {
         dealt.insert(card.id)
     }
     
-    private func isUndealt(_ card: MemoryGame<String>.MemoryCard) -> Bool {
+    private func isUndealt(_ card: Card) -> Bool {
         !dealt.contains(card.id)
     }
     
-    private func dealAnimation(for card: MemoryGame<String>.MemoryCard) -> Animation {
+    private func dealAnimation(for card: Card) -> Animation {
         var delay =  0.0
         if let index = viewModel.cards.firstIndex(where: { $0.id == card.id }) {
             delay = Double(index) * (CardConstants.totalDealDuration / Double(viewModel.cards.count))
@@ -54,7 +54,7 @@ struct MemoryGameView: View {
         return Animation.easeInOut(duration: CardConstants.dealDuration).delay(delay)
     }
     
-    private func zIndex(of card: MemoryGame<String>.MemoryCard) -> Double {
+    private func zIndex(of card: Card) -> Double {
         -Double(viewModel.cards.firstIndex{ $0.id == card.id} ?? 0)
     }
     
@@ -77,6 +77,7 @@ struct MemoryGameView: View {
         }
         .font(.largeTitle)
         .padding(.horizontal)
+        .onTapGesture { }
     }
     
     var deckBody: some View {
