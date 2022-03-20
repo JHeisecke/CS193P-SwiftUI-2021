@@ -29,6 +29,7 @@ struct MemoryGameView: View {
                             .foregroundColor(.red)
                     }
                 }
+                .padding(.horizontal)
                 memoryGame
                 bottomBar
             }
