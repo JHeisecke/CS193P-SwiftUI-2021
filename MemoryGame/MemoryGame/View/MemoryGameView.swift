@@ -18,24 +18,13 @@ struct MemoryGameView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
-                HStack {
-                    Text(viewModel.name)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .layoutPriority(1)
-                    HStack {
-                        Spacer()
-                        Text("Score")
-                        Text(viewModel.score)
-                            .foregroundColor(.red)
-                    }
-                }
-                .padding(.horizontal)
+                navigationBar
                 memoryGame
                 bottomBar
             }
             deckBody
         }
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true) /// Creates custom back button to restart game when view is dismissed
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -48,6 +37,22 @@ struct MemoryGameView: View {
             }
         }
         .padding()
+    }
+    
+    var navigationBar: some View {
+        HStack {
+            Text(viewModel.name)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .layoutPriority(1)
+            HStack {
+                Spacer()
+                Text("Score")
+                Text(viewModel.score)
+                    .foregroundColor(.red)
+            }
+        }
+        .padding(.horizontal)
     }
     
     private func deal(_ card: Card) {
@@ -132,7 +137,7 @@ struct MemoryGameView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let game = MemoryGameViewModel()
+        let game = MemoryGameViewModel(theme: DeckThemes.randomOption)
         return MemoryGameView(viewModel: game)
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)

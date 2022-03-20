@@ -9,10 +9,16 @@ import Foundation
 
 class MemoryGameViewModel: ObservableObject {
     
-    @Published private var model = createMemoryGame()
+    @Published private var model: MemoryGame<String>
+    var theme: DeckThemes
     
-    private static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(theme: DeckThemes.randomOption) { pairIndex, theme in
+    init(theme: DeckThemes) {
+        model = MemoryGameViewModel.createMemoryGame(with: theme)
+        self.theme = theme
+    }
+    
+    private static func createMemoryGame(with theme: DeckThemes) -> MemoryGame<String> {
+        MemoryGame<String>(theme: theme) { pairIndex, theme in
             theme.deck[pairIndex]
         }
     }
@@ -45,6 +51,6 @@ class MemoryGameViewModel: ObservableObject {
     func restart() {
         model.name = ""
         model.color = 0
-        model = MemoryGameViewModel.createMemoryGame()
+        model = MemoryGameViewModel.createMemoryGame(with: theme)
     }
 }

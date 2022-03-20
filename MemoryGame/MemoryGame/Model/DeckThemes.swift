@@ -83,7 +83,11 @@ enum DeckThemes {
         }
     }
     
+    static var allOptions: [DeckThemes] {
+        return [.animals, .vehicles, .people, .foods, .objects, .flags]
+    }
+    
     static var randomOption: DeckThemes {
-        return [.foods, .animals, .vehicles, .people, .flags, .objects].shuffled()[0]
+        return allOptions.shuffled()[0]
     }
 }

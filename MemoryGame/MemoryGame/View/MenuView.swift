@@ -11,28 +11,30 @@ struct MenuView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(
-                    destination:
-                        MemoryGameView(
-                            viewModel: MemoryGameViewModel()
-                        )
-                ) {
-                    Text("Emojis")
+                ForEach(DeckThemes.allOptions, id: \.self) { theme in
+                    NavigationLink(destination:
+                                    MemoryGameView(viewModel: MemoryGameViewModel(theme: theme)))
+                    {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(theme.name)
+                                .font(.headline)
+                                .foregroundColor(Color(hex: theme.color))
+                            Text(theme.deck.map({$0}).joined(separator: ""))
+                                .font(.caption)
+                        }
+                    }
                 }
             }
             .navigationBarTitle("Memorize!")
-            .navigationBarItems(
-                leading:
-                    Button(
-                        action: {
-                            
-                        })
-                {
-                    Image(systemName: "plus")
-                        .frame(width: 50, height: 50)
-                },
-                trailing: EditButton().frame(width: 50, height: 50)
-            )
+// TODO: Replace Enum and add functionality for Edit and Add Themes Button
+//            .navigationBarItems(
+//                leading:
+//                    Button(action: { }) {
+//                        Image(systemName: "plus")
+//                            .frame(width: 50, height: 50)
+//                    },
+//                trailing: EditButton().frame(width: 50, height: 50)
+//            )
         }
     }
 }
