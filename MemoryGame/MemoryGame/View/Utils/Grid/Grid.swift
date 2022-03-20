@@ -7,13 +7,13 @@
 
 import SwiftUI
 
+/// Grid extension to automatically calculate the size of cards depending on the screen size
 extension Grid where Item: Identifiable, ID == Item.ID {
     init(_ items: [Item], viewForItem: @escaping (Item) -> ItemView) {
         self.init(items, id: \Item.id, viewForItem: viewForItem)
     }
 }
 
-/// care a little bit about type; generics + protocols
 struct Grid<Item, ID, ItemView>: View where ID: Hashable, ItemView: View {
     private var items: [Item]
     private var id: KeyPath<Item, ID>

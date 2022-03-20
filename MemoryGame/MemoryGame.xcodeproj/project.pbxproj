@@ -20,6 +20,8 @@
 		00FC541D27E6CE2000A4BD45 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC541C27E6CE2000A4BD45 /* MenuView.swift */; };
 		00FC541F27E6CE6300A4BD45 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC541E27E6CE6300A4BD45 /* MenuViewModel.swift */; };
 		00FC542327E6D9A300A4BD45 /* DeckThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC542227E6D9A300A4BD45 /* DeckThemes.swift */; };
+		00FC542527E7738B00A4BD45 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC542427E7738B00A4BD45 /* Grid.swift */; };
+		00FC542727E773C500A4BD45 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC542627E773C500A4BD45 /* GridLayout.swift */; };
 		0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */; };
 		0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */; };
 		0BF0E17E27AC1AD2003F0679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF0E17D27AC1AD2003F0679 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 		00FC541C27E6CE2000A4BD45 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		00FC541E27E6CE6300A4BD45 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		00FC542227E6D9A300A4BD45 /* DeckThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckThemes.swift; sourceTree = "<group>"; };
+		00FC542427E7738B00A4BD45 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		00FC542627E773C500A4BD45 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		0BF0E17627AC1AD1003F0679 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameApp.swift; sourceTree = "<group>"; };
 		0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameView.swift; sourceTree = "<group>"; };
@@ -71,10 +75,9 @@
 		00A15A3E27CC00CF0014DA09 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				00A15A3927CC00110014DA09 /* Constants.swift */,
+				00FC542927E77CBA00A4BD45 /* Modifiers */,
+				00FC542827E7775700A4BD45 /* Grid */,
 				00A15A3527CBD72B0014DA09 /* Pie.swift */,
-				00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */,
-				00A15A3727CBFF400014DA09 /* Cardify.swift */,
 				00A15A3D27CC00C50014DA09 /* Extensions */,
 			);
 			path = Utils;
@@ -83,6 +86,7 @@
 		00D2621127B036B90037F014 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				00A15A3927CC00110014DA09 /* Constants.swift */,
 				00D2621227B036C70037F014 /* MemoryGame.swift */,
 				00FC542227E6D9A300A4BD45 /* DeckThemes.swift */,
 			);
@@ -107,6 +111,24 @@
 				00A15A3E27CC00CF0014DA09 /* Utils */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		00FC542827E7775700A4BD45 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				00FC542427E7738B00A4BD45 /* Grid.swift */,
+				00FC542627E773C500A4BD45 /* GridLayout.swift */,
+				00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		00FC542927E77CBA00A4BD45 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				00A15A3727CBFF400014DA09 /* Cardify.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		0BF0E16D27AC1AD0003F0679 = {
@@ -224,9 +246,11 @@
 				00D2621327B036C70037F014 /* MemoryGame.swift in Sources */,
 				0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */,
 				0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */,
+				00FC542727E773C500A4BD45 /* GridLayout.swift in Sources */,
 				00FC541D27E6CE2000A4BD45 /* MenuView.swift in Sources */,
 				00FC542327E6D9A300A4BD45 /* DeckThemes.swift in Sources */,
 				00A15A3C27CC008E0014DA09 /* View+Extension.swift in Sources */,
+				00FC542527E7738B00A4BD45 /* Grid.swift in Sources */,
 				00A15A3427CBCDDB0014DA09 /* AspectVGrid.swift in Sources */,
 				00D2621627B037C40037F014 /* MemoryGameViewModel.swift in Sources */,
 				00FC541627E6B78E00A4BD45 /* CardView.swift in Sources */,

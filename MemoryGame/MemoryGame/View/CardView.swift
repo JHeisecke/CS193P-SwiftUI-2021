@@ -35,18 +35,18 @@ struct CardView: View {
                 .opacity(0.5)
                 
                 Text(card.content)
+                    .font(.system(size: fontSize(for: size)))
                     .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
-                    .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
+                    .animation(card.isMatched ?
+                               Animation.linear(duration: 1).repeatForever(autoreverses: false)
+                               : .default)
                     .padding(5)
-                    .font(Font.system(size: DrawingConstants.fontSize))
-                    .scaleEffect(scale(thatFits: size))
             }
             .cardify(isFaceUp: card.isFaceUp, color: color)
         }
     }
     
-    // the "scale factor" to scale our Text up so that it fits the geometry.size offered to us
-    private func scale(thatFits size: CGSize) -> CGFloat {
-        min(size.width, size.height) / (DrawingConstants.fontSize / DrawingConstants.fontScale)
+    private func fontSize(for size: CGSize) -> CGFloat {
+        min(size.width, size.height) * 0.65
     }
 }
