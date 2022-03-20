@@ -28,12 +28,14 @@ struct Cardify: Animatable, ViewModifier {
                 shape
                     .stroke(lineWidth: DrawingConstants.lineWidth)
                     .foregroundColor(CardConstants.color)
-                content
             } else {
                 shape
                     .fill()
                     .foregroundColor(CardConstants.color)
             }
-        }.rotation3DEffect(Angle.degrees(rotation), axis: (0, 1, 0))
+            content
+                .opacity(rotation < 90 ? 1 : 0)
+        }
+        .rotation3DEffect(Angle.degrees(rotation), axis: (0, 1, 0))
     }
 }

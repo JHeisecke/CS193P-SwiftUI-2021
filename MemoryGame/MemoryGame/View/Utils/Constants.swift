@@ -11,6 +11,7 @@ struct DrawingConstants {
     static let cornerRadius: CGFloat = 20
     static let lineWidth: CGFloat = 3
     static let fontScale: CGFloat = 0.7
+    static let fontSize: CGFloat = 32
 }
 
 struct CardConstants {

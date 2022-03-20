@@ -56,7 +56,7 @@ struct MemoryGameView: View {
                     .matchedGeometryEffect(id: card.id, in: dealingNamespace)
                     .zIndex(zIndex(of: card))
                     .transition(.asymmetric(insertion: .identity, removal: .scale))
-                    .padding(5)
+                    .padding(4)
                     .onTapGesture {
                         withAnimation {
                             viewModel.choose(card)

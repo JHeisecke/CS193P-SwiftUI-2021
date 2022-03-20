@@ -36,13 +36,16 @@ struct CardView: View {
                 Text(card.content)
                     .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
                     .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-                    .font(.system(size: fontSize(for: size)))
+                    .padding(5)
+                    .font(Font.system(size: DrawingConstants.fontSize))
+                    .scaleEffect(scale(thatFits: size))
             }
             .cardify(isFaceUp: card.isFaceUp)
         }
     }
     
-    private func fontSize(for size: CGSize) -> CGFloat {
-        min(size.width, size.height) * 0.65
+    // the "scale factor" to scale our Text up so that it fits the geometry.size offered to us
+    private func scale(thatFits size: CGSize) -> CGFloat {
+        min(size.width, size.height) / (DrawingConstants.fontSize / DrawingConstants.fontScale)
     }
 }
