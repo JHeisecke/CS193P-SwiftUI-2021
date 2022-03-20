@@ -13,12 +13,16 @@ class MemoryGameViewModel: ObservableObject {
     
     private static func createMemoryGame() -> MemoryGame<String> {
         MemoryGame<String>(numberOfPairs: 9) { pairIndex in
-            DeckThemes.allThemes[pairIndex]
+            DeckTheme.theme[pairIndex]
         }
     }
     
     var cards: [MemoryGame<String>.MemoryCard] {
         return model.cards
+    }
+    
+    var score: Int {
+        model.score
     }
     
     //MARK: - Intent(s)

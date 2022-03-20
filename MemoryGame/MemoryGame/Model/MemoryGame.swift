@@ -9,6 +9,7 @@ import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [MemoryCard]
+    var score = 0
     
     private var indexOfFlippedCard: Int? {
         get { cards.indices.filter({ cards[$0].isFaceUp }).oneAndOnly }
@@ -17,12 +18,13 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     init(numberOfPairs: Int, createCardContent: (Int) -> CardContent) {
         cards = [MemoryCard]()
-        
+        score = 0
         for pairIndex in 0..<numberOfPairs {
             let content = createCardContent(pairIndex)
             cards.append(MemoryCard(id: pairIndex*2+1, content: content))
             cards.append(MemoryCard(id: pairIndex*2, content: content))
         }
+        cards.shuffle()
     }
     
     mutating func choose(_ card: MemoryCard) {
@@ -34,11 +36,17 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[chosenIndex].content == cards[matchCardIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[matchCardIndex].isMatched = true
+                    score += 2
+                } else {
+                    if cards[chosenIndex].hasBeenSeen {
+                        score -= 1
+                    }
                 }
                 cards[chosenIndex].isFaceUp = true
             } else {
                 indexOfFlippedCard = chosenIndex
             }
+            cards[chosenIndex].hasBeenSeen = true
         }
     }
     
@@ -49,6 +57,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     struct MemoryCard: Identifiable {
         let id: Int
         let content: CardContent
+        var hasBeenSeen = false
         var isFaceUp = false {
             didSet {
                 if isFaceUp {
@@ -115,9 +124,6 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
 }
 
-struct DeckThemes {
-    static let themeVehicles = ["🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
-    static let themeAnimals = ["🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯"]
-    static let themeFood = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕"]
-    static let allThemes = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕","🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯","🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
+enum DeckTheme {
+    static let theme = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕","🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯","🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
 }

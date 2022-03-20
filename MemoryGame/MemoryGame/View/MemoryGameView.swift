@@ -11,14 +11,25 @@ struct MemoryGameView: View {
     
     @ObservedObject var viewModel: MemoryGameViewModel
     @State private var dealt = Set<Int>()
+    // a token which provides a namespace for the id's used in matchGeometryEffect
     @Namespace private var dealingNamespace
     
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
-                Text("Memorize!")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                HStack {
+                    Text("Memorize!")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .layoutPriority(1)
+                    HStack {
+                        Spacer()
+                        Text("Score")
+                        Text("\(viewModel.score)")
+                            .foregroundColor(.red)
+                    }
+                }
+
                 memoryGame
                 bottomBar
             }
