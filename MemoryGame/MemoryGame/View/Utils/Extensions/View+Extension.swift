@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension View {
-    func cardify(isFaceUp value: Bool) -> some View {
-        self.modifier(Cardify(isFaceUp: value))
+    func cardify(isFaceUp value: Bool, color: Int) -> some View {
+        self.modifier(Cardify(isFaceUp: value, color: color))
     }
 }
 

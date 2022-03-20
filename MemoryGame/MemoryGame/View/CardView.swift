@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     let card: MemoryGame<String>.MemoryCard
+    var color: Int
     
     @State private var animatedBonusRemaining: Double = 0
     
@@ -40,7 +41,7 @@ struct CardView: View {
                     .font(Font.system(size: DrawingConstants.fontSize))
                     .scaleEffect(scale(thatFits: size))
             }
-            .cardify(isFaceUp: card.isFaceUp)
+            .cardify(isFaceUp: card.isFaceUp, color: color)
         }
     }
     

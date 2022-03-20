@@ -18,7 +18,7 @@ struct MemoryGameView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 HStack {
-                    Text("Memorize!")
+                    Text(viewModel.name)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .layoutPriority(1)
@@ -29,7 +29,6 @@ struct MemoryGameView: View {
                             .foregroundColor(.red)
                     }
                 }
-
                 memoryGame
                 bottomBar
             }
@@ -63,7 +62,7 @@ struct MemoryGameView: View {
             if isUndealt(card) || (card.isMatched && !card.isFaceUp) {
                 Color.clear
             } else {
-                CardView(card: card)
+                CardView(card: card, color: viewModel.color)
                     .matchedGeometryEffect(id: card.id, in: dealingNamespace)
                     .zIndex(zIndex(of: card))
                     .transition(.asymmetric(insertion: .identity, removal: .scale))
@@ -82,14 +81,14 @@ struct MemoryGameView: View {
     var deckBody: some View {
         ZStack {
             ForEach(viewModel.cards.filter(isUndealt)) { card in
-                CardView(card: card)
+                CardView(card: card, color: viewModel.color)
                     .matchedGeometryEffect(id: card.id, in: dealingNamespace)
                     .zIndex(zIndex(of: card))
                     .transition(.asymmetric(insertion: .scale, removal: .identity))
             }
         }
         .frame(width: CardConstants.undealtWidth, height: CardConstants.undealtHeight)
-        .foregroundColor(CardConstants.color)
+        .foregroundColor(Color(hex: viewModel.color))
         .onTapGesture {
             viewModel.cards.forEach { card in
                 withAnimation(dealAnimation(for: card)) {

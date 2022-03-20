@@ -9,13 +9,15 @@ import SwiftUI
 
 struct Cardify: Animatable, ViewModifier {
     var rotation: Double // in degrees
+    var color: Color
     var animatableData: Double {
         get { rotation }
         set { rotation = newValue }
     }
     
-    init(isFaceUp: Bool) {
+    init(isFaceUp: Bool, color: Int) {
         rotation = isFaceUp ? 0 : 180
+        self.color = Color(hex: color)
     }
     
     func body(content: Content) -> some View {
@@ -27,11 +29,11 @@ struct Cardify: Animatable, ViewModifier {
                     .foregroundColor(.white)
                 shape
                     .stroke(lineWidth: DrawingConstants.lineWidth)
-                    .foregroundColor(CardConstants.color)
+                    .foregroundColor(color)
             } else {
                 shape
                     .fill()
-                    .foregroundColor(CardConstants.color)
+                    .foregroundColor(color)
             }
             content
                 .opacity(rotation < 90 ? 1 : 0)

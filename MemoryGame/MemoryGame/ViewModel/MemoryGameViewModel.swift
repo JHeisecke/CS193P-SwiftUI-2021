@@ -12,8 +12,8 @@ class MemoryGameViewModel: ObservableObject {
     @Published private var model = createMemoryGame()
     
     private static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairs: 9) { pairIndex in
-            DeckTheme.theme[pairIndex]
+        MemoryGame<String>(theme: DeckThemes.randomOption) { pairIndex, theme in
+            theme.deck[pairIndex]
         }
     }
     
@@ -23,6 +23,14 @@ class MemoryGameViewModel: ObservableObject {
     
     var score: Int {
         model.score
+    }
+    
+    var name: String {
+        return model.name
+    }
+    
+    var color: Int {
+        return model.color
     }
     
     //MARK: - Intent(s)
@@ -35,6 +43,8 @@ class MemoryGameViewModel: ObservableObject {
     }
     
     func restart() {
+        model.name = ""
+        model.color = 0
         model = MemoryGameViewModel.createMemoryGame()
     }
 }

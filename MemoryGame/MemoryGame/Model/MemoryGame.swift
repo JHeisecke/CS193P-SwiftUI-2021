@@ -9,6 +9,8 @@ import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [MemoryCard]
+    var name: String
+    var color: Int
     var score = 0
     
     private var indexOfFlippedCard: Int? {
@@ -16,19 +18,21 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         set { cards.indices.forEach{ cards[$0].isFaceUp = ( $0 == newValue) } }
     }
     
-    init(numberOfPairs: Int, createCardContent: (Int) -> CardContent) {
+    init(theme: DeckThemes, createCardContent: (Int, DeckThemes) -> CardContent) {
+        name = theme.name
+        color = theme.color
         cards = [MemoryCard]()
         score = 0
-        for pairIndex in 0..<numberOfPairs {
-            let content = createCardContent(pairIndex)
+        for pairIndex in 0..<theme.numberOfPairs {
+            let content = createCardContent(pairIndex, theme)
             cards.append(MemoryCard(id: pairIndex*2+1, content: content))
             cards.append(MemoryCard(id: pairIndex*2, content: content))
+            cards.shuffle()
         }
-        cards.shuffle()
     }
     
     mutating func choose(_ card: MemoryCard) {
-        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id}),
+        if let chosenIndex = cards.firstIndex(matching: card),
             !cards[chosenIndex].isFaceUp,
             !cards[chosenIndex].isMatched
         {
@@ -122,8 +126,4 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             self.lastFaceUpDate = nil
         }
     }
-}
-
-enum DeckTheme {
-    static let theme = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕","🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯","🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
 }
