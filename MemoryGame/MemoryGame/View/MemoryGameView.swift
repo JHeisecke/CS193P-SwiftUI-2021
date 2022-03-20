@@ -58,7 +58,7 @@ struct MemoryGameView: View {
                     .transition(.asymmetric(insertion: .identity, removal: .scale))
                     .padding(5)
                     .onTapGesture {
-                        withAnimation(.spring()) {
+                        withAnimation {
                             viewModel.choose(card)
                         }
                     }
@@ -104,8 +104,6 @@ struct MemoryGameView: View {
             }
         }.padding(.horizontal)
     }
-
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -114,41 +112,5 @@ struct ContentView_Previews: PreviewProvider {
         return MemoryGameView(viewModel: game)
             .previewDevice("iPhone 13 Pro Max")
             .preferredColorScheme(.dark)
-    }
-}
-
-// MARK: - CardView
-struct CardView: View {
-    let card: MemoryGame<String>.MemoryCard
-    
-    @State private var animatedBonusRemaining: Double = 0
-    
-    var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Group {
-                    if card.isConsumingBonusTime {
-                        Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: (1-animatedBonusRemaining)*360-90))
-                            .onAppear {
-                                animatedBonusRemaining = card.bonusRemaining
-                                withAnimation(.linear(duration: card.bonusTimeRemaining)) {
-                                    animatedBonusRemaining = 0
-                                }
-                            }
-                    } else {
-                        Pie(startAngle: Angle(degrees: 0-90), endAngle: Angle(degrees: (1-card.bonusTimeRemaining)*360-90))
-
-                    }
-                }
-                    .foregroundColor(.red)
-                    .padding(4)
-                    .opacity(0.5)
-                Text(card.content).font(font(in: geometry.size))
-            }.cardify(isFaceUp: card.isFaceUp)
-        }
-    }
-    
-    private func font(in size: CGSize) -> Font {
-        Font.system(size: min(size.width, size.height) * DrawingConstants.fontScale)
     }
 }

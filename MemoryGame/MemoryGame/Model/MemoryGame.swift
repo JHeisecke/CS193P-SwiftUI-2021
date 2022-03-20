@@ -64,9 +64,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             }
         }
         
-        // this could give matching bonus points
-        // if the user matches the card
-        // before a certain amount of time passes during which the card is face up
+        // MARK: - Bonus Time
         
         // can be zero which means "no bonus available" for this card
         var bonusTimeLimit: TimeInterval = 6
@@ -81,6 +79,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
         // the last time this card was turned face up (and is still face up)
         var lastFaceUpDate: Date?
+        
         // the accumulated time this card has been face up in the past
         // (i.e. not including the current time it's been face up if it is currently so)
         var pastFaceUpTime: TimeInterval = 0
@@ -121,14 +120,4 @@ struct DeckThemes {
     static let themeAnimals = ["🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯"]
     static let themeFood = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕"]
     static let allThemes = ["🧋", "🥤", "🍰", "🐒", "🍿", "🍖", "🍗", "🥩", "🍔", "🍟", "🍕","🐒", "🦅", "🦫", "🦥", "🐿", "🦔", "🦤", "🦁", "🐯","🚙", "🚎", "🚗", "🚕", "🚌", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻"]
-}
-
-extension Array {
-    var oneAndOnly: Element? {
-        if self.count == 1 {
-            return first
-        } else {
-            return nil
-        }
-    }
 }

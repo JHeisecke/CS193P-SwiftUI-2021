@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiable{
+struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiable {
     var items: [Item]
     var aspectRatio: CGFloat
     var content: (Item) -> ItemView
@@ -19,16 +19,16 @@ struct AspectVGrid<Item, ItemView>: View where ItemView: View, Item: Identifiabl
     }
     
     var body: some View {
-        VStack {
-            GeometryReader { geometry in
+        GeometryReader { geometry in
+            VStack {
                 let width: CGFloat = widthThatFits(itemCount: items.count, in: geometry.size, itemAspectRatio: aspectRatio)
-                LazyVGrid(columns: [adaptiveGridItem(width)]) {
-                    ForEach(items) { card in
-                        content(card).aspectRatio(aspectRatio, contentMode: .fit)
+                LazyVGrid(columns: [adaptiveGridItem(width)], spacing: 0) {
+                    ForEach(items) { item in
+                        content(item).aspectRatio(aspectRatio, contentMode: .fit)
                     }
                 }
+                Spacer(minLength: 0)
             }
-            Spacer(minLength: 0) // used to turn the geomtry reader flexible
         }
     }
     
