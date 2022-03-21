@@ -23,6 +23,8 @@
 		00FC542327E6D9A300A4BD45 /* DeckThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC542227E6D9A300A4BD45 /* DeckThemes.swift */; };
 		00FC542527E7738B00A4BD45 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC542427E7738B00A4BD45 /* Grid.swift */; };
 		00FC542727E773C500A4BD45 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC542627E773C500A4BD45 /* GridLayout.swift */; };
+		0B437FAB27E912150093C38A /* MemoryGame.Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B437FAA27E912150093C38A /* MemoryGame.Deck.swift */; };
+		0B437FAD27E9142A0093C38A /* MemoryGame.Deck.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B437FAC27E9142A0093C38A /* MemoryGame.Deck.Card.swift */; };
 		0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */; };
 		0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */; };
 		0BF0E17E27AC1AD2003F0679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF0E17D27AC1AD2003F0679 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		00FC542227E6D9A300A4BD45 /* DeckThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckThemes.swift; sourceTree = "<group>"; };
 		00FC542427E7738B00A4BD45 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		00FC542627E773C500A4BD45 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		0B437FAA27E912150093C38A /* MemoryGame.Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.Deck.swift; sourceTree = "<group>"; };
+		0B437FAC27E9142A0093C38A /* MemoryGame.Deck.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.Deck.Card.swift; sourceTree = "<group>"; };
 		0BF0E17627AC1AD1003F0679 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameApp.swift; sourceTree = "<group>"; };
 		0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameView.swift; sourceTree = "<group>"; };
@@ -78,10 +82,10 @@
 		00A15A3E27CC00CF0014DA09 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				00A15A3D27CC00C50014DA09 /* Extensions */,
 				00FC542927E77CBA00A4BD45 /* Modifiers */,
 				00FC542827E7775700A4BD45 /* Grid */,
 				00A15A3527CBD72B0014DA09 /* Pie.swift */,
-				00A15A3D27CC00C50014DA09 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -90,8 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				00A15A3927CC00110014DA09 /* Constants.swift */,
-				00D2621227B036C70037F014 /* MemoryGame.swift */,
 				00FC542227E6D9A300A4BD45 /* DeckThemes.swift */,
+				00D2621227B036C70037F014 /* MemoryGame.swift */,
+				0B437FAA27E912150093C38A /* MemoryGame.Deck.swift */,
+				0B437FAC27E9142A0093C38A /* MemoryGame.Deck.Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 				0BF0E17C27AC1AD1003F0679 /* MemoryGameView.swift in Sources */,
 				0BF0E17A27AC1AD1003F0679 /* MemoryGameApp.swift in Sources */,
 				00FC542727E773C500A4BD45 /* GridLayout.swift in Sources */,
+				0B437FAD27E9142A0093C38A /* MemoryGame.Deck.Card.swift in Sources */,
+				0B437FAB27E912150093C38A /* MemoryGame.Deck.swift in Sources */,
 				00FC541D27E6CE2000A4BD45 /* MenuView.swift in Sources */,
 				002AF21727E78DF900CF5D53 /* Double+Extension.swift in Sources */,
 				00FC542327E6D9A300A4BD45 /* DeckThemes.swift in Sources */,
