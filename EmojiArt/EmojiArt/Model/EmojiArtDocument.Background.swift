@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension EmojiArt {
+extension EmojiArtDocument {
     enum Background {
         case blank
         case url(URL)

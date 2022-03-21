@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmojiArtViewModel: ObservableObject {
+class EmojiArtDocumentViewModel: ObservableObject {
     @Published private(set) var emojiArt: EmojiArt
     
     init() {

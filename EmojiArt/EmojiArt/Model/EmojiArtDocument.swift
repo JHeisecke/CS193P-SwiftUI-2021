@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmojiArt {
+struct EmojiArtDocument {
     var background = Background.blank
     private(set) var emojis = [Emoji]()
     
