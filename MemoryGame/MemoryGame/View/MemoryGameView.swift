@@ -140,6 +140,5 @@ struct ContentView_Previews: PreviewProvider {
         let game = MemoryGameViewModel(theme: DeckThemes.randomOption)
         return MemoryGameView(viewModel: game)
             .previewDevice("iPhone 13 Pro Max")
-            .preferredColorScheme(.dark)
     }
 }

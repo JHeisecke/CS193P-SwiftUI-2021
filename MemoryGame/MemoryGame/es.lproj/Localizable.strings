@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  MemoryGame
+
+  Created by Javier Heisecke on 2022-03-26.
+  
+*/
+
+"Shuffle" = "Mezclar";
+"Restart" = "Reintentar";
+"Memorize!" = "Memoriza!";
+"Animals" = "Animales";
+"Foods" = "Comidas";
+"Vehicles" = "Vehículos";
+"People" = "Personas";
+"Objects" = "Objetos";
+"Flags" = "Banderas";
+"Score" = "Puntaje";

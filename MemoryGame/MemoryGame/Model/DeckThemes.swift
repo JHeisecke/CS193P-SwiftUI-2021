@@ -18,13 +18,13 @@ enum DeckThemes {
     var color: Int {
         switch self {
         case .vehicles:
-            return 0xffffcc
+            return 0xccff33
         case .animals:
             return 0xccff99
         case .foods:
             return 0xff9966
         case .people:
-            return 0xffcc99
+            return 0xffcc00
         case .flags:
             return 0xcc0000
         case .objects:
@@ -52,17 +52,17 @@ enum DeckThemes {
     var name: String {
         switch self {
         case .vehicles:
-            return "Vehicles"
+            return String(localized: "Vehicles")
         case .animals:
-            return "Animals"
+            return String(localized: "Animals")
         case .foods:
-            return "Foods"
+            return String(localized: "Foods")
         case .people:
-            return "People"
+            return String(localized: "People")
         case .flags:
-            return "Flags"
+            return String(localized: "Flags")
         case .objects:
-            return "Objects"
+            return String(localized: "Objects")
         }
     }
     
