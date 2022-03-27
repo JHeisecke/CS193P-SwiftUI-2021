@@ -43,7 +43,7 @@ struct CardView: View {
                     .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
                     .animation(card.isMatched ?
                                Animation.linear(duration: 1).repeatForever(autoreverses: false)
-                               : .default)
+                               : .default, value: card.isMatched)
                     .padding(5)
             }
             .cardify(isFaceUp: card.isFaceUp, color: color)
