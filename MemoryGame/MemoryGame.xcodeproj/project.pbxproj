@@ -10,6 +10,8 @@
 		0022C50027EFA56800F9F5FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0022C50227EFA56800F9F5FE /* Localizable.strings */; };
 		0022C51627EFB39200F9F5FE /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 0022C51827EFB39200F9F5FE /* Localizable.stringsdict */; };
 		002AF21727E78DF900CF5D53 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002AF21627E78DF900CF5D53 /* Double+Extension.swift */; };
+		003B254627F0C1410025CC3E /* FireworkParticlesGeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B254527F0C1410025CC3E /* FireworkParticlesGeometryEffect.swift */; };
+		003B254827F0C1840025CC3E /* ParticlesModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003B254727F0C1840025CC3E /* ParticlesModifier.swift */; };
 		00A15A3427CBCDDB0014DA09 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */; };
 		00A15A3627CBD72B0014DA09 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3527CBD72B0014DA09 /* Pie.swift */; };
 		00A15A3827CBFF400014DA09 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A15A3727CBFF400014DA09 /* Cardify.swift */; };
@@ -39,6 +41,8 @@
 		0022C51C27EFB47500F9F5FE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = es; path = es.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		0022C51D27EFB4B900F9F5FE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "es-419"; path = "es-419.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		002AF21627E78DF900CF5D53 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		003B254527F0C1410025CC3E /* FireworkParticlesGeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkParticlesGeometryEffect.swift; sourceTree = "<group>"; };
+		003B254727F0C1840025CC3E /* ParticlesModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticlesModifier.swift; sourceTree = "<group>"; };
 		00A15A3327CBCDDB0014DA09 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		00A15A3527CBD72B0014DA09 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		00A15A3727CBFF400014DA09 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
@@ -72,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0013747527F0EBBA0026A92E /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				00A15A3527CBD72B0014DA09 /* Pie.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		00A15A3D27CC00C50014DA09 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,10 +98,11 @@
 		00A15A3E27CC00CF0014DA09 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0013747527F0EBBA0026A92E /* Shapes */,
 				00FC542927E77CBA00A4BD45 /* Modifiers */,
 				00FC542827E7775700A4BD45 /* Grid */,
-				00A15A3527CBD72B0014DA09 /* Pie.swift */,
 				00A15A3D27CC00C50014DA09 /* Extensions */,
+				003B254527F0C1410025CC3E /* FireworkParticlesGeometryEffect.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -138,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				00A15A3727CBFF400014DA09 /* Cardify.swift */,
+				003B254727F0C1840025CC3E /* ParticlesModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -257,7 +271,9 @@
 			files = (
 				00A15A3627CBD72B0014DA09 /* Pie.swift in Sources */,
 				00FC541F27E6CE6300A4BD45 /* MenuViewModel.swift in Sources */,
+				003B254627F0C1410025CC3E /* FireworkParticlesGeometryEffect.swift in Sources */,
 				00FC541227E6B4F000A4BD45 /* Color+Extension.swift in Sources */,
+				003B254827F0C1840025CC3E /* ParticlesModifier.swift in Sources */,
 				00A15A3827CBFF400014DA09 /* Cardify.swift in Sources */,
 				00FC541427E6B66F00A4BD45 /* Array+Extension.swift in Sources */,
 				00D2621327B036C70037F014 /* MemoryGame.swift in Sources */,
@@ -423,7 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MemoryGame/Preview Content\"";
 				DEVELOPMENT_TEAM = UK87X7N6A9;
@@ -454,11 +470,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Javier Heisecke (UK87X7N6A9)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MemoryGame/Preview Content\"";
-				DEVELOPMENT_TEAM = UK87X7N6A9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -475,7 +491,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.jheisecke.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Memory AppStore";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

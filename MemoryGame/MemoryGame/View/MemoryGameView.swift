@@ -17,12 +17,16 @@ struct MemoryGameView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            VStack {
-                navigationBar
-                memoryGame
-                bottomBar
+            if viewModel.allCardsMatched {
+                confetti
+            } else {
+                VStack {
+                        navigationBar
+                        memoryGame
+                        bottomBar
+                }
+                deckBody
             }
-            deckBody
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true) /// Creates custom back button to restart game when view is dismissed
@@ -42,9 +46,9 @@ struct MemoryGameView: View {
     var navigationBar: some View {
         HStack {
             Text(viewModel.name)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .layoutPriority(1)
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .layoutPriority(1)
             HStack {
                 Spacer()
                 Text("Score")
@@ -132,6 +136,42 @@ struct MemoryGameView: View {
                 }
             }
         }.padding(.horizontal)
+    }
+    
+    var confetti: some View {
+        ZStack {
+            Circle()
+                .fill(Color.blue)
+                .frame(width: 12, height: 12)
+                .modifier(ParticlesModifier(delay: 0.5))
+                .offset(x: -100, y : -50)
+            Circle()
+                .fill(Color.purple)
+                .frame(width: 12, height: 12)
+                .modifier(ParticlesModifier(delay: 0.9))
+                .offset(x: -50, y : 0)
+            VStack {
+                Text("Congratulations!")
+                    .font(.largeTitle)
+                HStack {
+                    Text("Score")
+                        .font(.title3)
+                    Text(viewModel.score)
+                        .foregroundColor(.red)
+                        .font(.title3)
+                }
+            }
+            Circle()
+                .fill(Color.red)
+                .frame(width: 12, height: 12)
+                .modifier(ParticlesModifier(delay: 1.3))
+                .offset(x: 60, y : 70)
+            Circle()
+                .fill(Color.green)
+                .frame(width: 12, height: 12)
+                .modifier(ParticlesModifier())
+                .offset(x: 30, y : 40)
+        }
     }
 }
 

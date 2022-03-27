@@ -11,7 +11,7 @@ typealias Card = MemoryGame<String>.MemoryCard
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [MemoryCard]
-    var areAllCardsMatched: Bool = false
+    var matchedCards = 0
     var name: String
     var color: Int
     var score: Double
@@ -35,6 +35,19 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     mutating func choose(_ card: MemoryCard) {
+        
+        let faceupCardIndeces = cards.indices.filter { cards[$0].isFaceUp }
+        
+        /// 3rd tap; when two cards are opened, update there Seen status and flip them; restart
+        if faceupCardIndeces.count > 1 {
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    cards[index].hasBeenSeen = true
+                    cards[index].isFaceUp = false
+                }
+            }
+        }
+        
         if let chosenIndex = cards.firstIndex(matching: card),
             !cards[chosenIndex].isFaceUp,
             !cards[chosenIndex].isMatched
@@ -43,6 +56,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[chosenIndex].content == cards[matchCardIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[matchCardIndex].isMatched = true
+                    matchedCards += 2
                     score += (2 + 2 * (cards[matchCardIndex].bonusRemaining + cards[chosenIndex].bonusRemaining)).round(to: 1)
                 } else {
                     if cards[chosenIndex].hasBeenSeen ||
@@ -56,6 +70,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             }
             cards[chosenIndex].hasBeenSeen = true
         }
+    }
+    
+    mutating func checkLastCards() {
+
     }
     
     mutating func shuffle() {

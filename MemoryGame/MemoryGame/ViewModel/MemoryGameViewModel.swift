@@ -39,6 +39,10 @@ class MemoryGameViewModel: ObservableObject {
         return model.color
     }
     
+    var allCardsMatched: Bool {
+        return model.matchedCards == cards.count
+    }
+    
     //MARK: - Intent(s)
     func choose(_ card: Card) {
         model.choose(card)
