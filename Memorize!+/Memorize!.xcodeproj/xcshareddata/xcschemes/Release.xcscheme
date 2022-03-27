@@ -15,15 +15,15 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0BF0E17527AC1AD1003F0679"
-               BuildableName = "MemoryGame.app"
-               BlueprintName = "MemoryGame"
-               ReferencedContainer = "container:MemoryGame.xcodeproj">
+               BuildableName = "Memorize!+.app"
+               BlueprintName = "Memorize!"
+               ReferencedContainer = "container:Memorize!.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -31,7 +31,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0BF0E17527AC1AD1003F0679"
-            BuildableName = "MemoryGame.app"
-            BlueprintName = "MemoryGame"
-            ReferencedContainer = "container:MemoryGame.xcodeproj">
+            BuildableName = "Memorize!+.app"
+            BlueprintName = "Memorize!"
+            ReferencedContainer = "container:Memorize!.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,14 +62,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0BF0E17527AC1AD1003F0679"
-            BuildableName = "MemoryGame.app"
-            BlueprintName = "MemoryGame"
-            ReferencedContainer = "container:MemoryGame.xcodeproj">
+            BuildableName = "Memorize!+.app"
+            BlueprintName = "Memorize!"
+            ReferencedContainer = "container:Memorize!.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"

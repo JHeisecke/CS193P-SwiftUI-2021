@@ -58,7 +58,7 @@
 		00FC542227E6D9A300A4BD45 /* DeckThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckThemes.swift; sourceTree = "<group>"; };
 		00FC542427E7738B00A4BD45 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		00FC542627E773C500A4BD45 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
-		0BF0E17627AC1AD1003F0679 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BF0E17627AC1AD1003F0679 /* Memorize!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memorize!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF0E17927AC1AD1003F0679 /* MemoryGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameApp.swift; sourceTree = "<group>"; };
 		0BF0E17B27AC1AD1003F0679 /* MemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameView.swift; sourceTree = "<group>"; };
 		0BF0E17D27AC1AD2003F0679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		0BF0E16D27AC1AD0003F0679 = {
 			isa = PBXGroup;
 			children = (
-				0BF0E17827AC1AD1003F0679 /* MemoryGame */,
+				0BF0E17827AC1AD1003F0679 /* Memorize! */,
 				0BF0E17727AC1AD1003F0679 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -167,12 +167,12 @@
 		0BF0E17727AC1AD1003F0679 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0BF0E17627AC1AD1003F0679 /* MemoryGame.app */,
+				0BF0E17627AC1AD1003F0679 /* Memorize!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0BF0E17827AC1AD1003F0679 /* MemoryGame */ = {
+		0BF0E17827AC1AD1003F0679 /* Memorize! */ = {
 			isa = PBXGroup;
 			children = (
 				00D2621127B036B90037F014 /* Model */,
@@ -184,7 +184,7 @@
 				0022C50227EFA56800F9F5FE /* Localizable.strings */,
 				0022C51827EFB39200F9F5FE /* Localizable.stringsdict */,
 			);
-			path = MemoryGame;
+			path = "Memorize!";
 			sourceTree = "<group>";
 		};
 		0BF0E17F27AC1AD2003F0679 /* Preview Content */ = {
@@ -198,9 +198,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0BF0E17527AC1AD1003F0679 /* MemoryGame */ = {
+		0BF0E17527AC1AD1003F0679 /* Memorize! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0BF0E18427AC1AD2003F0679 /* Build configuration list for PBXNativeTarget "MemoryGame" */;
+			buildConfigurationList = 0BF0E18427AC1AD2003F0679 /* Build configuration list for PBXNativeTarget "Memorize!" */;
 			buildPhases = (
 				0BF0E17227AC1AD1003F0679 /* Sources */,
 				0BF0E17327AC1AD1003F0679 /* Frameworks */,
@@ -210,9 +210,9 @@
 			);
 			dependencies = (
 			);
-			name = MemoryGame;
+			name = "Memorize!";
 			productName = MemoryGame;
-			productReference = 0BF0E17627AC1AD1003F0679 /* MemoryGame.app */;
+			productReference = 0BF0E17627AC1AD1003F0679 /* Memorize!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0BF0E17127AC1AD0003F0679 /* Build configuration list for PBXProject "MemoryGame" */;
+			buildConfigurationList = 0BF0E17127AC1AD0003F0679 /* Build configuration list for PBXProject "Memorize!" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -245,7 +245,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0BF0E17527AC1AD1003F0679 /* MemoryGame */,
+				0BF0E17527AC1AD1003F0679 /* Memorize! */,
 			);
 		};
 /* End PBXProject section */
@@ -439,12 +439,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MemoryGame/Preview Content\"";
+				CODE_SIGN_IDENTITY = "Apple Development: Javier Heisecke (9KQY5D8379)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"Memorize!/Preview Content\"";
 				DEVELOPMENT_TEAM = UK87X7N6A9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "d.Memorize!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -459,6 +461,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.jheisecke.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Memory Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -470,13 +473,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MemoryGame/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Javier Heisecke (UK87X7N6A9)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"Memorize!/Preview Content\"";
+				DEVELOPMENT_TEAM = UK87X7N6A9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Memorize!+";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -491,7 +495,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.jheisecke.MemoryGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Memory AppStore";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -501,7 +505,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0BF0E17127AC1AD0003F0679 /* Build configuration list for PBXProject "MemoryGame" */ = {
+		0BF0E17127AC1AD0003F0679 /* Build configuration list for PBXProject "Memorize!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0BF0E18227AC1AD2003F0679 /* Debug */,
@@ -510,7 +514,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0BF0E18427AC1AD2003F0679 /* Build configuration list for PBXNativeTarget "MemoryGame" */ = {
+		0BF0E18427AC1AD2003F0679 /* Build configuration list for PBXNativeTarget "Memorize!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0BF0E18527AC1AD2003F0679 /* Debug */,
